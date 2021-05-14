@@ -7,8 +7,7 @@ Works Cycles. Tato firma vznikla v roce 2010.
 Data je potřeba kontrolovat, protože jsou na jejich základě tvořena
 důležitá byznysová rozhodnutí.
 
-Šéfové jednotlivých oddělení byli požádáni, aby sepsali požadavky, která
-mají data splňovat.
+Klíčoví stakeholdeři a šéfové sales oddělení sepsali pro QA požadavky které data musí splňovat.
 
 V části A jsou sepsány požadavky na Smoke testy, v části B jsou
 požadavky na integrační testy pro tabulky v databázi AdventureWorks2019
@@ -16,10 +15,11 @@ a Dim tabulky v databázi AdventureWorksDW2019, a nakonec v části C jsou
 zadání pro tabulky v databázi AdventureWorks2019 a Fact tabulky v
 databázi AdventureWorksDW2019.
 
+Některé query jsou v zadání předvyplněné, takže stačí vytvořit testy v souboru TestDefinition.yaml a zkopírovat je. 
+Pokud si chcete psaní query vyzkoušet sami, můžete k tomu využít zadání, nebo si vymyslet vlastní testy podle vaší fantazie. :)
+
 Na konci dokumentu můžete najít informace o tabulkách v
 AdventureWorks2019.
-
-Tento soubor obsahuje testy pro oddělení Sales.
 
 ## A)  Smoke testy
 
