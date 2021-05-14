@@ -1,13 +1,10 @@
 # Adventure Works Cycles - Sales
 
 Pracujeme s databázemi **AdventureWorks2019** a **AdventureWorksDW2019**, které
-shromažďují data o fiktivním nadnárodním výrobci jízdních kol Adventure
-Works Cycles. Tato firma vznikla v roce 2010.
+shromažďují data o fiktivním nadnárodním výrobci jízdních kol a příslušenství Adventure
+Works Cycles. Firma vznikla v roce 2010.
 
-Data je potřeba kontrolovat, protože jsou na jejich základě tvořena
-důležitá byznysová rozhodnutí.
-
-Klíčoví stakeholdeři a šéfové sales oddělení sepsali pro QA požadavky které data musí splňovat.
+Data je potřeba testovat, protože jsou na jejich základě tvořena důležitá byznysová rozhodnutí. Klíčoví stakeholdeři a šéfové sales oddělení sepsali pro QA základní požadavky, které data musí splňovat.
 
 V části A jsou sepsány požadavky na Smoke testy, v části B jsou
 požadavky na integrační testy pro tabulky v databázi AdventureWorks2019
