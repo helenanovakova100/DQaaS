@@ -16,28 +16,28 @@ Některé query jsou v zadání předvyplněné, takže stačí vytvořit testy 
 Pokud si chcete psaní query vyzkoušet sami, můžete k tomu využít zadání, nebo si vymyslet vlastní testy podle vaší fantazie. :)
 
 ## Struktura Smoke testu v souboru TestDefinitions.yaml
-  -
-    **TestSuite:** Název sady několika test cases, může být jakýkoli, například pod TestSuite zahrneme všechny Smoke testy. <br>
-    **Order:** Pořadí testu. <br>
-    **TestCase:** Název sady několika testů, může být jakýkoli, například název tabulky, pro kterou budeme tvořit více samostatných testů. <br>
-    **TestName:** Název pro test, může být jakýkoli, ale měli bychom z něj poznat, o co nám v testu jde. Z TestSuite, Order, TestCase a TestName JC.Unit složí celý název testu, takže bude vypadat například takto *[Smoke Sales].[1].[Sales.CreditCard].[Len of Card Number]*. <br>
-    **TestDescription:** Krátký popis testu - všem by pak mělo být jasné, o co v testu jde, pokud bude zkoumat bug. <br>
-    **TestQuerySource:** Název (alias) databáze nebo jiného zdroje, ve kterém bude exekuována query. Jedná se o ConnectionName, které jsme si definovali. <br>
-    **TestQuery:** Samotná query/dotaz do databáze nebo jiného zdroje. <br>
-    **TestTypeName:** Pro Smoke testy v tomto případě používáme **ZeroRows**. U ZeroRows JC.Unit očekává, že se nám nevrátí žádné hodnoty po exekuci query/dotazu. Pokud se nějaká hodnota vrátí, test spadne.
+
+**TestSuite:** Název sady několika test cases, může být jakýkoli, například pod TestSuite zahrneme všechny Smoke testy. <br>
+**Order:** Pořadí testu. <br>
+**TestCase:** Název sady několika testů, může být jakýkoli, například název tabulky, pro kterou budeme tvořit více samostatných testů. <br>
+**TestName:** Název pro test, může být jakýkoli, ale měli bychom z něj poznat, o co nám v testu jde. Z TestSuite, Order, TestCase a TestName JC.Unit složí celý název testu, takže bude vypadat například takto *[Smoke Sales].[1].[Sales.CreditCard].[Len of Card Number]*. <br>
+**TestDescription:** Krátký popis testu - všem by pak mělo být jasné, o co v testu jde, pokud bude zkoumat bug. <br>
+**TestQuerySource:** Název (alias) databáze nebo jiného zdroje, ve kterém bude exekuována query. Jedná se o ConnectionName, které jsme si definovali. <br>
+**TestQuery:** Samotná query/dotaz do databáze nebo jiného zdroje. <br>
+**TestTypeName:** Pro Smoke testy v tomto případě používáme **ZeroRows**. U ZeroRows JC.Unit očekává, že se nám nevrátí žádné hodnoty po exekuci query/dotazu. Pokud se nějaká hodnota vrátí, test spadne.
 
 ## Struktura Integračního testu v souboru TestDefinitions.yaml
-  -
-    **TestSuite:** Název sady několika test cases, může být jakýkoli, například pod TestSuite zahrneme všechny Integrační testy. <br>
-    **Order:** Pořadí testu. <br>
-    **TestCase:** Název sady několika testů, může být jakýkoli, například názvy tabulek, pro které budeme tvořit více samostatných testů. <br>
-    **TestName:** Název pro test, může být jakýkoli, ale měli bychom z něj poznat, o co nám v testu jde. Z TestSuite, Order, TestCase a TestName JC.Unit složí celý název testu, takže bude vypadat například takto *[Integration Sales].[1].[Sales.SalesTerritory x dbo.DimSalesTerritory].[Values of SalesTerritoryRegion]*. <br>
-    **TestDescription:** Krátký popis testu - všem by pak mělo být jasné, o co v testu jde, pokud bude zkoumat bug. <br>
-    **TestQuerySource:** Název (alias) databáze nebo jiného zdroje, ve kterém bude exekuována první query. Jedná se o ConnectionName, které jsme si definovali. <br>
-    **TestQuery:** Samotná query/dotaz do databáze nebo jiného zdroje. <br>
-    **ReferenceQuerySource:** Název (alias) databáze nebo jiného zdroje, ve kterém bude exekuována druhá referenční query. Jedná se o ConnectionName, které jsme si definovali. <br>
-    **ReferenceQuery:** Samotná query/dotaz do databáze nebo jiného zdroje. <br>
-    **TestTypeName:** Pro Integrační testy v tomto případě používáme **SameData**. U SameData JC:Unit očekává, že se nám z obou query/dotazů vrátí stejné hodnoty. Pokud hodnoty nejsou stejné, test spadne. Záleží na pořadí hodnot, proto používáme Order by.
+
+**TestSuite:** Název sady několika test cases, může být jakýkoli, například pod TestSuite zahrneme všechny Integrační testy. <br>
+**Order:** Pořadí testu. <br>
+**TestCase:** Název sady několika testů, může být jakýkoli, například názvy tabulek, pro které budeme tvořit více samostatných testů. <br>
+**TestName:** Název pro test, může být jakýkoli, ale měli bychom z něj poznat, o co nám v testu jde. Z TestSuite, Order, TestCase a TestName JC.Unit složí celý název testu, takže bude vypadat například takto *[Integration Sales].[1].[Sales.SalesTerritory x dbo.DimSalesTerritory].[Values of SalesTerritoryRegion]*. <br>
+**TestDescription:** Krátký popis testu - všem by pak mělo být jasné, o co v testu jde, pokud bude zkoumat bug. <br>
+**TestQuerySource:** Název (alias) databáze nebo jiného zdroje, ve kterém bude exekuována první query. Jedná se o ConnectionName, které jsme si definovali. <br>
+**TestQuery:** Samotná query/dotaz do databáze nebo jiného zdroje. <br>
+**ReferenceQuerySource:** Název (alias) databáze nebo jiného zdroje, ve kterém bude exekuována druhá referenční query. Jedná se o ConnectionName, které jsme si definovali. <br>
+**ReferenceQuery:** Samotná query/dotaz do databáze nebo jiného zdroje. <br>
+**TestTypeName:** Pro Integrační testy v tomto případě používáme **SameData**. U SameData JC:Unit očekává, že se nám z obou query/dotazů vrátí stejné hodnoty. Pokud hodnoty nejsou stejné, test spadne. Záleží na pořadí hodnot, proto používáme Order by.
 
 Na konci dokumentu můžete najít informace o tabulkách v
 AdventureWorks2019.
