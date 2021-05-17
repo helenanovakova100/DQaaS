@@ -20,7 +20,7 @@ Loading\... Registering for your lab Registering\...
 ](Images/media/i2.png)
  
 
-## 3.  Pokud na vás nezbyde volná mašina (VM) objeví se následující
+## 3.  Pokud jste v registraci uvedli nesprávný email objeví se následující 
 
 
 ![Machine generated alternative text: Azure Lab Services Registering for
@@ -28,6 +28,7 @@ your lab All virtual machines have been claimed. Please contact the lab
 owner to increase the capacity of the lab.
 ](Images/media/i3.png)
 
+Tento problém vyřešíme tím, že nám dáte vědět (ideálně do chatu) svů správný email vašeho Microsoft účtu (je jedno zda osobního či organizačního).
 
 ## 4.  V opačném případě se vám objeví vám dostupné Laby
 
