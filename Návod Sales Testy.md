@@ -17,6 +17,8 @@ Pokud si chcete psaní query vyzkoušet sami, můžete k tomu využít zadání,
 
 ## Struktura Smoke testu v souboru TestDefinitions.yaml
 
+![Smoke](Images/media/Smoke.jpg)
+
 **TestSuite:** Název sady několika test cases, může být jakýkoli, například pod TestSuite zahrneme všechny Smoke testy. <br>
 **Order:** Pořadí testu. <br>
 **TestCase:** Název sady několika testů, může být jakýkoli, například název tabulky, pro kterou budeme tvořit více samostatných testů. <br>
@@ -27,6 +29,8 @@ Pokud si chcete psaní query vyzkoušet sami, můžete k tomu využít zadání,
 **TestTypeName:** Pro Smoke testy v tomto případě používáme **ZeroRows**. U ZeroRows JC.Unit očekává, že se nám nevrátí žádné hodnoty po exekuci query/dotazu. Pokud se nějaká hodnota vrátí, test spadne.
 
 ## Struktura Integračního testu v souboru TestDefinitions.yaml
+
+![Int](Images/media/Int.jpg)
 
 **TestSuite:** Název sady několika test cases, může být jakýkoli, například pod TestSuite zahrneme všechny Integrační testy. <br>
 **Order:** Pořadí testu. <br>
@@ -43,7 +47,6 @@ Na konci dokumentu můžete najít informace o tabulkách v
 AdventureWorks2019.
 
 ## A)  Smoke testy
-
 
 | Testovací požadavek  | Název tabulky v databázi AdventureWorks2019  | Query  |
 |-|-|-|
