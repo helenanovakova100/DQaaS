@@ -2,7 +2,7 @@
 
 GIT repository s užitečnými soubory
 
-[GIT](https://github.com/cernatery/Workshop)
+[GIT](https://github.com/cernatery/DQaaS)
 
 
 Azure Lab Services - registrace a připojení k labu (virtuální mašině)
