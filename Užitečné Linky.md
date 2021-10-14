@@ -13,4 +13,4 @@ Azure Lab Services - registrace a připojení k labu (virtuální mašině)
 Budeme moc rádi, když nám dáte feedback jak moc se vám dnešní workshop
 líbil
 
-[Feedback](https://forms.office.com/r/0FcFNjcE58)
+[Feedback](https://forms.office.com/r/BEREyf5bX3)
