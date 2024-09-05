@@ -75,9 +75,6 @@ Druhá část těchto genrovaných testů je definována takto :
 
 
 
-
-
-
 Na konci dokumentu můžete najít informace o tabulkách v
 AdventureWorks2019.
 
@@ -112,6 +109,14 @@ AdventureWorks2019.
 |Počet řádků internetových objednávek v tabulce SalesOrderDetail se musí rovnat počtu řádků v tabulce FactInternetSales | [Sales].[SalesOrderHeader], join [Sales].[SalesOrderDetail] | [dbo].[FactInternetSales] | | | Tabulka SalesOrderDetail se musí spojit se SalesOrderHeader, internetové objednávky indikuje hodnota 1 ve sloupci OnlineOrderFlag |
 |Součet sloupce LineTotal za jednotlivé oblasti (internetové objednávky) musí být stejný jako součet SalesAmount v tabulce FactInternetSales za jednotlivé oblasti | [Sales].[SalesOrderHeader], join [Sales].[SalesOrderDetail], join [Sales].[SalesTerritory] | [dbo].[FactInternetSales], join [dbo].[DimSalesTerritory] | SELECT T.Name, SUM(D.LineTotal) AS SumLineTotal <br> FROM [Sales].[SalesOrderHeader] H JOIN Sales.SalesOrderDetail D ON D.SalesOrderID = H.SalesOrderID <br> JOIN Sales.SalesTerritory T ON T.TerritoryID = H.TerritoryID <br> WHERE H.OnlineOrderFlag = 1 <br> GROUP BY T.Name ORDER BY T.Name; | SELECT T.SalesTerritoryRegion, SUM(S.SalesAmount) AS SumSalesAmount <br> FROM [dbo].[FactInternetSales] S <br> JOIN dbo.DimSalesTerritory T ON T.SalesTerritoryKey = S.SalesTerritoryKey <br> GROUP BY T.SalesTerritoryRegion <br> ORDER BY T.SalesTerritoryRegion; | Tabulka SalesOrderDetail se musí spojit se SalesOrderHeader, internetové objednávky indikuje hodnota 1 ve sloupci OnlineOrderFlag. Oblasti najdete ve sloupci Name v tabulce Sales.SalesTerritory a ve sloupci SalesTerritoryRegion v dbo.DimSalesTerritory | 
 |Součet sloupce LineTotal za jednotlivé produkty (internetové objednávky) musí být stejný jako součet SalesAmount v tabulce FactInternetSales za jednotlivé produkty | [Sales].[SalesOrderHeader], join [Sales].[SalesOrderDetail], join [Production].[Product] | [dbo].[FactInternetSales], join [dbo].[DimProduct] | | | Tabulka SalesOrderDetail se musí spojit se SalesOrderHeader, internetové objednávky indikuje hodnota 1 ve sloupci OnlineOrderFlag. Produkty najdete ve sloupci Name v tabulce Production.Product a ve sloupci EnglishProductName v dbo.DimProduct|
+
+## D) Generování testů na základě metadat
+
+| Testovací požadavek | Tabulky v AdventureWorks2019 | Query AdventureWorks2019 | Poznámka |
+|---------------------|-----------------------------|--------------------------|----------|
+| Vygenerujte testy pro všechny tabulky se schématem Sales. Tento test bude kontrolovat, že tabulky nejsou prázdné. | Využít můžete INFORMATION_SCHEMA.TABLES | Samotný test bude jednoduchý dotaz, který vybere vše z dané tabulky. Použít lze Expectation: Set is not Empty|
+|Vygnerujte testy pro všechny  sloupečky, které mají v názvu Key a nacházejí se v DIM nebo FACT tabulkách. Poté napište test, že tyto sloupce neobsahuji nullové hodnoty.  
+
 
 ## Přehled tabulek za oddělení Sales v databázi AdventureWorks2019
 |Table Name|Description|
