@@ -112,10 +112,11 @@ AdventureWorks2019.
 
 ## D) Generování testů na základě metadat
 
-| Testovací požadavek | Tabulky v AdventureWorks2019 | Query AdventureWorks2019 | Poznámka |
+| Testovací požadavek | AW nebo ADWH | Query AdventureWorks2019 | Poznámka |
 |---------------------|-----------------------------|--------------------------|----------|
-| Vygenerujte testy pro všechny tabulky se schématem Sales. Tento test bude kontrolovat, že tabulky nejsou prázdné. | Využít můžete INFORMATION_SCHEMA.TABLES | Samotný test bude jednoduchý dotaz, který vybere vše z dané tabulky. Použít lze Expectation: Set is not Empty|
-|Vygnerujte testy pro všechny  sloupečky, které mají v názvu Key a nacházejí se v DIM nebo FACT tabulkách. Poté napište test, že tyto sloupce neobsahuji nullové hodnoty.  
+| Vygenerujte testy pro všechny tabulky se schématem Sales. Tento test bude kontrolovat, že tabulky nejsou prázdné. | Využít můžete INFORMATION_SCHEMA.TABLES v AW | Samotný test bude jednoduchý dotaz, který vybere vše z dané tabulky. Použít lze Expectation: Set is not Empty|
+|Vygnerujte testy pro všechny  sloupečky, které mají v názvu Key a nacházejí se v DIM nebo FACT tabulkách. Poté napište test, že tyto sloupce neobsahuji nullové hodnoty. | INFORMATION_SCHEMA.columns V ADWH | Samotný test bude používat jméno sloupce a tabulky z metadat|
+
 
 
 ## Přehled tabulek za oddělení Sales v databázi AdventureWorks2019
