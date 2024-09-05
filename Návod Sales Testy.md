@@ -19,29 +19,64 @@ Pokud si chcete psaní query vyzkoušet sami, můžete k tomu využít zadání,
 
 ![Smoke](Images/media/Smoke.jpg)
 
-**TestSuite:** Název sady několika test cases, může být jakýkoli, například pod TestSuite zahrneme všechny Smoke testy. <br>
-**Order:** Pořadí testu. <br>
-**TestCase:** Název sady několika testů, může být jakýkoli, například název tabulky, pro kterou budeme tvořit více samostatných testů. <br>
-**TestName:** Název pro test, může být jakýkoli, ale měli bychom z něj poznat, o co nám v testu jde. Z TestSuite, Order, TestCase a TestName JC.Unit složí celý název testu, takže bude vypadat například takto *[Smoke Sales].[1].[Sales.CreditCard].[Len of Card Number]*. <br>
-**TestDescription:** Krátký popis testu - všem by pak mělo být jasné, o co v testu jde, pokud bude zkoumat bug. <br>
-**TestQuerySource:** Název (alias) databáze nebo jiného zdroje, ve kterém bude exekuována query. Jedná se o ConnectionName, které jsme si definovali. <br>
-**TestQuery:** Samotná query/dotaz do databáze nebo jiného zdroje. <br>
-**TestTypeName:** Pro Smoke testy v tomto případě používáme **ZeroRows**. U ZeroRows JC.Unit očekává, že se nám nevrátí žádné hodnoty po exekuci query/dotazu. Pokud se nějaká hodnota vrátí, test spadne.
+**Test Suite:** Název sady několika test cases, může být jakýkoli, například pod TestSuite zahrneme všechny Smoke testy.Toto pole není povinné. <br>
+**Order:** Pořadí testu.Toto pole není povinné.  <br>
+**Test Case:** Název sady několika testů, může být jakýkoli, například název tabulky, pro kterou budeme tvořit více samostatných testů.Toto pole není povinné.  <br>
+**Name:** Název pro test, může být jakýkoli, ale měl by naznačovat, co je předmětem testu. Z TestSuite, Order, TestCase a TestName CAT složí celý název testu, takže bude vypadat například takto *[Smoke Sales].[1].[Sales.CreditCard].[Len of Card Number]*. 
+Toto pole je povinné. Samotné jméno testu nemusí být unikátní, ale kombinace Test Suite, Order, Test Case a Name musí být jedinečná.<br>
+**Description:** Krátký popis testu - všem by pak mělo být jasné, o co v testu jde, pokud bude zkoumat bug.Toto pole není povinné. <br>
+**Data Source:** Název (alias) databáze nebo jiného zdroje dat, která chceme testovat. Jde o název, který jste definovali v Data Sources (AW nebo AWDW). Toto pole je povinné. <br>
+**Query:** Samotný dotaz do databáze nebo jiného zdroje.Toto pole je povinné. <br>
+**Expectation:** Pro Smoke testy v tomto případě používáme **Set is Empty**. Toto pole je povinné.
+
+Zde je popis jednotlivých **Expectation:**
+
+***Set is Empty:*** Očekávaný výsledek je, že dotaz vrátí prázdnou množinu. Pokud tomu tak není, test spadne.
+
+***Set is not Empty:*** Očekávaný výsledek je, že dotaz něco vrátí. To je užitečné například v případě, že chceme ověřit, zda tabulky nejsou prázdné.
+
+***Set RowCount:*** Při tomto typu testu si nastavíme počet řádků, které má dotaz vrátit. 
 
 ## Struktura Integračního testu v souboru TestDefinitions.yaml
 
 ![Int](Images/media/Int.jpg)
 
-**TestSuite:** Název sady několika test cases, může být jakýkoli, například pod TestSuite zahrneme všechny Integrační testy. <br>
-**Order:** Pořadí testu. <br>
-**TestCase:** Název sady několika testů, může být jakýkoli, například názvy tabulek, pro které budeme tvořit více samostatných testů. <br>
-**TestName:** Název pro test, může být jakýkoli, ale měli bychom z něj poznat, o co nám v testu jde. Z TestSuite, Order, TestCase a TestName JC.Unit složí celý název testu, takže bude vypadat například takto *[Integration Sales].[1].[Sales.SalesTerritory x dbo.DimSalesTerritory].[Values of SalesTerritoryRegion]*. <br>
-**TestDescription:** Krátký popis testu - všem by pak mělo být jasné, o co v testu jde, pokud bude zkoumat bug. <br>
-**TestQuerySource:** Název (alias) databáze nebo jiného zdroje, ve kterém bude exekuována první query. Jedná se o ConnectionName, které jsme si definovali. <br>
-**TestQuery:** Samotná query/dotaz do databáze nebo jiného zdroje. <br>
-**ReferenceQuerySource:** Název (alias) databáze nebo jiného zdroje, ve kterém bude exekuována druhá referenční query. Jedná se o ConnectionName, které jsme si definovali. <br>
-**ReferenceQuery:** Samotná query/dotaz do databáze nebo jiného zdroje. <br>
-**TestTypeName:** Pro Integrační testy v tomto případě používáme **SameData**. U SameData JC:Unit očekává, že se nám z obou query/dotazů vrátí stejné hodnoty. Pokud hodnoty nejsou stejné, test spadne. Záleží na pořadí hodnot, proto používáme Order by.
+**Test Suite:** Název sady několika test cases, může být jakýkoli, například pod TestSuite zahrneme všechny Integrační testy.Toto pole není povinné. <br>
+**Order:** Pořadí testu.Toto pole není povinné. <br>
+**Test Case:** Název sady několika testů, může být jakýkoli, například názvy tabulek, pro které budeme tvořit více samostatných testů.Toto pole není povinné. <br>
+**Name:** Název pro test, může být jakýkoli, ale měl by naznačovat, co je předmětem testu. Z TestSuite, Order, TestCase a TestName CAT složí celý název testu, takže bude vypadat například takto *[Smoke Sales].[1].[Sales.CreditCard].[Len of Card Number]*. 
+Toto pole je povinné. Samotné jméno testu nemusí být unikátní, ale kombinace Test Suite, Order, Test Case a Name musí být jedinečná.<br>
+**Description:** Krátký popis testu - všem by pak mělo být jasné, o co v testu jde, pokud bude zkoumat bug. <br>
+**First Query Source:** Název (alias) databáze nebo jiného zdroje dat, která chceme testovat. Jde o název, který jste definovali v Data Sources (AW nebo AWDW). Toto pole je povinné. <br>
+**First Query:** Samotná query/dotaz do databáze nebo jiného zdroje. <br>
+**Second Query Source:** Název (alias) databáze nebo jiného zdroje dat, která chceme testovat. Jde o název, který jste definovali v Data Sources (AW nebo AWDW). Toto pole je povinné. <br>
+**Second Query:** Samotný dotaz do databáze nebo jiného zdroje.Toto pole je povinné. <br>
+**Expectation:** Pro Integrační testy v tomto případě používáme **Sets match**. CAT tedy očekává, že výsledek First and Second Query bude stejný. Záleží na pořadí hodnot, proto používáme Order by.Pokud hodnoty nejsou stejné, test spadne. 
+**Maximum Errors Logged:** CAT nam vypíše rozdíly mezi sety.
+
+![metadata](Images/media/metadata.jpg)
+
+
+**Named Sets:** Toto pole pro CAT vytvoří metadata pro generované testy. Je nezbytné níže definovat tato metadata následovně:  
+**Name:** Název tohoto setu metadat.  
+**Data Source:**  Název (alias) databáze nebo jiného zdroje dat, který chceme testovat. Jde o název, který jste definovali v Data Sources (AW nebo AWDW).  
+**Query:** Dotaz, který vrátí hodnoty pro generování testů. Nejčastěji dotazujeme v databázi Information_Schema Table, Columns atd. Názvy sloupců, které dotaz vrátí, lze následně použít v testovacím dotazu. V tomto případě jsou to TABLE_CATALOG, TABLE_SCHEMA, TABLE_NAME a TABLE_TYPE.
+
+Druhá část těchto genrovaných testů je definována takto : 
+
+**Name:** Název testu. I zde můžeme pomocí % % použít proměnné z metadat, takže se název testu dynamicky generuje.  
+**Metadata:** Název (alias), který jsem použili definici matadat.   
+**Description:** Krátký popis testu. 
+**Data Source:**Název (alias) databáze nebo jiného zdroje dat, která chceme testovat. Jde o název, který jste definovali v Data Sources (AW nebo AWDW).  
+**Query:** Samotný dotaz, kde místo klasické definice FROM použijeme proměnné z předchozích metadat. Díky tomu se tento test vygeneruje pro každou hodnotu, kterou vrátí dotaz definovany v Named Sets.
+
+**Jak to funguje:** Nejprve jsme si pomocí dotazu do Information Schema vrátili seznam všech tabulek, a nyní tento seznam použijeme pro definovaný test. Test se proto vytvoří pro každou tabulku zvlášť.  
+**Expectation:** Klasická definice toho co očekáváme, že test vrátí. 
+
+
+
+
+
 
 Na konci dokumentu můžete najít informace o tabulkách v
 AdventureWorks2019.
